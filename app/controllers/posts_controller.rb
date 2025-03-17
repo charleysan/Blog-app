@@ -8,6 +8,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def new
+    @post = Post.new
+  end
+
   def create
     @post = Post.new(
       title: params["post"]["title"],
@@ -19,5 +23,6 @@ class PostsController < ApplicationController
       redirect_to @post, notice: 'Post was successfully created.'
     else
       render :new
+    end
   end
 end
