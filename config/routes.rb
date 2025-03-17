@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
-  
-  resources :posts, only: [:index, :show]
+   resources :posts
+  resources :copics, only: [:index, :show]
 end

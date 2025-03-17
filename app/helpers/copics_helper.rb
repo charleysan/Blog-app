@@ -1,0 +1,2 @@
+module CopicsHelper
+end

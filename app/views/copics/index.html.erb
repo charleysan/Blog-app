@@ -1,0 +1,13 @@
+<h1>Copics</h1>
+
+<% if @copics.any? %>
+  <% @copics.each do |copic| %>
+    <div class="copic">
+      <h2><%= link_to copic[:color], copics_path(copic[:id]) %></h2>
+     
+      <p><%= copic[:name] %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No copic available.</p>
+<% end %>

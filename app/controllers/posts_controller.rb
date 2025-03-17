@@ -1,19 +1,23 @@
 class PostsController < ApplicationController
   def index
-    @posts = [
-      { id: 1, title: "First Post", content: "Welcome to my blog!", author: "Alice" },
-      { id: 2, title: "Learning Rails", content: "Today I learned about MVC.", author: "Bob" },
-      { id: 3, title: "Full-Stack Development", content: "Rails makes it easy!", author: "Charlie" }
-    ]
+    @posts = Post.all
+      
   end
 
   def show
-    post_id = params[:id].to_i
-    @post = {
-      id: post_id,
-      title: "Post #{post_id}",
-      content: "Content for post #{post_id}",
-      author: "Author #{post_id}"
-    }
+    @post = Post.find(params[:id])
+  end
+
+  def create
+    @post = Post.new(
+      title: params["post"]["title"],
+      content: params["post"]["content"],
+      author: params["post"]["author"]
+    )
+
+    if @post.save
+      redirect_to @post, notice: 'Post was successfully created.'
+    else
+      render :new
   end
 end
