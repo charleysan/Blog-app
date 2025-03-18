@@ -3,7 +3,7 @@
 <% if @copics.any? %>
   <% @copics.each do |copic| %>
     <div class="copic">
-      <h2><%= link_to copic[:color], copics_path(copic[:id]) %></h2>
+      <h2><%= link_to copic[:color], copic_path(copic[:id]) %></h2> #object paths should 
      
       <p><%= copic[:name] %></p>
     </div>

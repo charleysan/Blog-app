@@ -5,4 +5,7 @@
 <p>By: <%= @post[:author] %></p>
 <p><%= @post[:content] %></p>
 
+
+<%= button_to 'Delete', @post, method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+
 <%= link_to 'Back to Posts Index', posts_path %>

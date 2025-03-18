@@ -24,5 +24,31 @@ class PostsController < ApplicationController
     else
       render :new
     end
+
   end
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    
+    if @post.update(
+        title: params["post"]["title"] || post.title,
+        content: params["post"]["content"] || post.content,
+        author: params["post"]["author"] || post.author
+      )
+      redirect_to @post, notice: 'Post was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy # not referencing line 46 (the destroy above)
+    redirect_to posts_path, notice: 'Post was successfully deleted.'
+  end
+
 end
