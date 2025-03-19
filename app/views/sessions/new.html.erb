@@ -1,0 +1,16 @@
+<h1>Log In</h1>
+
+<%= form_with url: login_path do |form| %>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+
+  <%= form.submit 'Log in' %>
+<% end %>
+
+app/views/posts/show.html.erb
